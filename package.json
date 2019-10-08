@@ -1,0 +1,120 @@
+{
+  "name": "uses",
+  "version": "1.0.0",
+  "description": "🎣 Collection of custom React hooks",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "sideEffects": false,
+  "files": [
+    "lib/",
+    "esm/"
+  ],
+  "types": "lib/index.d.ts",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "start": "yarn storybook",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "tslint 'src/**/*.{ts,tsx}' -t verbose",
+    "lint:fix": "yarn lint --fix",
+    "lint:types": "tsc --noEmit",
+    "build:cjs": "tsc",
+    "build:es": "tsc -m esNext --outDir esm",
+    "build": "yarn build:cjs && yarn build:es",
+    "clean": "rimraf lib storybook-static esm",
+    "storybook": "start-storybook -p 9000",
+    "storybook:build": "build-storybook",
+    "storybook:upload": "gh-pages -d storybook-static --git \"$(which git)\"",
+    "storybook:clean": "rimraf storybook-static",
+    "release": "semantic-release"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:types && lint-staged",
+      "pre-push": "yarn lint && yarn clean && yarn build && yarn test"
+    }
+  },
+  "author": "Hewon Jeong",
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hewonjeong/uses"
+  },
+  "homepage": "https://github.com/hewonjoneg/uses#readme",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.2",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/preset-env": "7.6.2",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "7.6.0",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/git": "7.0.16",
+    "@semantic-release/npm": "5.1.13",
+    "@storybook/addon-actions": "5.1.11",
+    "@storybook/addon-knobs": "5.1.11",
+    "@storybook/addon-notes": "5.1.11",
+    "@storybook/addon-options": "5.1.11",
+    "@storybook/react": "5.1.11",
+    "@testing-library/react-hooks": "2.0.3",
+    "@types/jest": "24.0.18",
+    "@types/react": "16.9.2",
+    "@types/react-wait": "0.3.0",
+    "babel-core": "6.26.3",
+    "babel-loader": "8.0.6",
+    "babel-plugin-dynamic-import-node": "2.3.0",
+    "fork-ts-checker-webpack-plugin": "1.5.0",
+    "gh-pages": "2.1.1",
+    "husky": "3.0.8",
+    "jest": "24.9.0",
+    "lint-staged": "9.4.2",
+    "prettier": "1.18.2",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
+    "react-test-renderer": "16.10.2",
+    "rimraf": "3.0.0",
+    "semantic-release": "15.13.24",
+    "ts-loader": "6.2.0",
+    "ts-node": "8.4.1",
+    "tslint": "5.20.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-eslint-rules": "5.4.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "tslint-react": "4.1.0",
+    "typescript": "3.5.3"
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "next",
+        "prerelease": "rc"
+      }
+    ],
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "tslint --fix -t verbose",
+      "git add"
+    ]
+  },
+  "volta": {
+    "node": "10.16.3",
+    "yarn": "1.19.0"
+  }
+}
