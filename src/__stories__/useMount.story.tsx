@@ -9,5 +9,4 @@ const Demo = () => {
   return <ConsoleStory />;
 };
 
-storiesOf('Lifecycle|useMount', module)
-  .add('Demo', () => <Demo />);
+storiesOf('Lifecycle|useMount', module).add('Demo', () => <Demo />);

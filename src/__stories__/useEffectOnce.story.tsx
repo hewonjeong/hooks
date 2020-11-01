@@ -15,5 +15,4 @@ const Demo = () => {
   return <ConsoleStory />;
 };
 
-storiesOf('Lifecycle|useEffectOnce', module)
-  .add('Demo', () => <Demo />);
+storiesOf('Lifecycle|useEffectOnce', module).add('Demo', () => <Demo />);
