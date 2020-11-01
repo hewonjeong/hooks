@@ -1,9 +1,8 @@
-import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import { useEffectOnce } from '..'
-import ConsoleStory from './util/ConsoleStory'
+import ConsoleStory from './utils/ConsoleStory'
 
-const Demo = () => {
+export const Default = () => {
   useEffectOnce(() => {
     console.log('Running effect once on mount')
 
@@ -15,4 +14,7 @@ const Demo = () => {
   return <ConsoleStory />
 }
 
-storiesOf('Lifecycle|useEffectOnce', module).add('Demo', () => <Demo />)
+export default {
+  title: 'Lifecycle/useEffectOnce',
+  component: Default,
+}
