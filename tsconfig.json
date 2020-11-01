@@ -17,11 +17,12 @@
     "noFallthroughCasesInSwitch": true,
     "outDir": "lib",
     "lib": ["es2018", "dom"]
+    "importHelpers": true
   },
   "exclude": [
     "node_modules",
     "lib",
-    "**/__tests__/**/*",
+    "esm",
     "**/__stories__/**/*",
     "*.test.ts",
     "*.test.tsx"
