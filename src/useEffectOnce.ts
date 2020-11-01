@@ -1,7 +1,7 @@
-import { EffectCallback, useEffect } from 'react';
+import { EffectCallback, useEffect } from 'react'
 
 const useEffectOnce = (effect: EffectCallback) => {
-  useEffect(effect, []); // eslint-disable-line react-hooks/exhaustive-deps
-};
+  useEffect(effect, []) // eslint-disable-line react-hooks/exhaustive-deps
+}
 
-export default useEffectOnce;
+export default useEffectOnce

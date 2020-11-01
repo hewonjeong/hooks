@@ -1,9 +1,9 @@
-import useEffectOnce from './useEffectOnce';
+import useEffectOnce from './useEffectOnce'
 
 const useMount = (fn: () => void) => {
   useEffectOnce(() => {
-    fn();
-  });
-};
+    fn()
+  })
+}
 
-export default useMount;
+export default useMount
