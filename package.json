@@ -24,12 +24,11 @@
     "build:es": "tsc -m esNext --outDir esm",
     "build": "yarn build:cjs && yarn build:es",
     "clean": "rimraf lib storybook-static esm",
-    "storybook": "start-storybook -p 6006 --no-dll",
-    "storybook:build": "build-storybook",
+    "storybook": "start-storybook -p 6000 --no-dll",
+    "storybook:build": "build-storybook --no-dll",
     "storybook:upload": "gh-pages -d storybook-static --git \"$(which git)\"",
     "storybook:clean": "rimraf storybook-static",
-    "release": "semantic-release",
-    "build-storybook": "build-storybook --no-dll"
+    "release": "semantic-release"
   },
   "husky": {
     "hooks": {
